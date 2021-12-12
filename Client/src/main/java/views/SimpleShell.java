@@ -29,7 +29,7 @@ public class SimpleShell {
                 (new InputStreamReader(System.in));
 
         ProcessBuilder pb = new ProcessBuilder();
-        List<String> history = new ArrayList<String>();
+        List<String> history = new ArrayList<>();
         int index = 0;
         //we break out with <ctrl c>
         while (true) {
@@ -39,7 +39,7 @@ public class SimpleShell {
 
             //input parsed into array of strings(command and arguments)
             String[] commands = commandLine.split(" ");
-            List<String> list = new ArrayList<String>();
+            List<String> list = new ArrayList<>();
 
             //if the user entered a return, just loop again
             if (commandLine.equals(""))
@@ -51,7 +51,7 @@ public class SimpleShell {
 
             //loop through to see if parsing worked
             for (int i = 0; i < commands.length; i++) {
-                //System.out.println(commands[i]); //***check to see if parsing/split worked***
+                System.out.println(commands[i]); //***check to see if parsing/split worked***
                 list.add(commands[i]);
 
             }

@@ -17,9 +17,10 @@ public class YouAreEll {
         this.tt = t;
     }
 
-    public YouAreEll(MessageController messageController, IdController idController) {
-       this.messageController = messageController;
-       this.idController = idController;
+    public YouAreEll(MessageController messageController, IdController idController) throws IOException {
+//       this.messageController = messageController;
+//       this.idController = idController;
+       this.tt = new TransactionController(messageController, idController);
     }
 
     public static void main(String[] args) throws IOException {
@@ -32,14 +33,14 @@ public class YouAreEll {
         System.out.println(urlhandler.MakeURLCall("/messages", "GET", ""));
     }
 
-    private String MakeURLCall(String s, String get, String s1) throws IOException {
+    private String MakeURLCall(String s, String method, String s1) throws IOException {
 
-      return tt.makecall(s,get,s1);
+      return tt.makecall(s,method,s1);
 
     }
 
     public String get_ids() throws IOException {
-    return tt.makecall("/ids", "GET", "");
+    return MakeURLCall("/ids", "GET", "");
 
     }
 

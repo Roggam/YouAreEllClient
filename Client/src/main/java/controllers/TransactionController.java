@@ -1,5 +1,6 @@
 package controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import models.Id;
 
 import java.io.BufferedReader;
@@ -26,7 +27,8 @@ public class TransactionController {
     public List<Id> getIds() {
     return idCtrl.getIds();
     }
-    public String postId(String idtoRegister, String githubName) {
+
+    public String postId(String idtoRegister, String githubName) throws JsonProcessingException {
         Id tid = new Id(idtoRegister, githubName);
         tid = idCtrl.postId(tid);
         return ("Id registered.");
